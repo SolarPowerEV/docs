@@ -1294,6 +1294,30 @@ meters:
 
 <!-- AUTO-GENERATED FROM TEMPLATE - PLEASE EDIT HERE https://github.com/evcc-io/evcc/tree/master/templates/definition/meter  -->
 
+## elgris SMART METER LAN
+
+<DeviceFeatures features="" />
+
+Der elgris SMART METER LAN ist vollständig kompatibel zu SMA. Insofern ist - bis jemand ein eigenes Template für ihn geschrieben hat - die einfachste Option ihn für evcc zu nutzen, die Einbindung über das bereits vorhandene SMA Energy Meter Template. Er bietet grundsätzlich neben der Verbindung über TCP/IP und einem Webinterface auch noch bis zu drei Modbus-Anbindungen gleichzeitig an. Zur Nutzung in evcc mit dem SMA-Template muss man im Webinterface das Setting "SMA METER INTERVAL" auf mindestens 1000 ms (oder kürzer) setzen. Ansonsten meldet evcc den FATAL ERROR: "cannot create meter 'grid': cannot create meter type 'template': cannot create meter type 'sma': failed to get device: no Speedwire ping response for 192.0.2.2"
+
+<Tabs>
+<TabItem value="grid" label="Netz" default>
+
+```yaml
+meters:
+  - name: my_grid
+    type: template
+    template: sma-energy-meter
+    usage: grid
+    host: 192.0.2.2 # IP-Adresse oder Hostname
+    port: 502 # Port (optional)
+```
+
+</TabItem>
+</Tabs>
+
+<!-- AUTO-GENERATED FROM TEMPLATE - PLEASE EDIT HERE https://github.com/evcc-io/evcc/tree/master/templates/definition/meter  -->
+
 ## Enphase IQ Envoy
 
 <DeviceFeatures features="" />
